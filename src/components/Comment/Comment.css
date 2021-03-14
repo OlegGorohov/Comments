@@ -2,6 +2,10 @@
   padding: 5px 5px 5px 40px;
 }
 
+.comment .comment {
+  border-left: 2px solid #dcdcdc;
+}
+
 .comment__author {
   font-size: 14px;
   font-weight: 700;
@@ -12,6 +16,9 @@
 }
 
 .comment__text {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px;
+}
+
+.comment__text--active {
+  color: #1e90ff;
 }

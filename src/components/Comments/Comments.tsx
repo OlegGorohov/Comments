@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Comment } from "components/Comment/Comment";
 import { commentsControl } from "service";
 import { CommentDTO } from "dtos/CommentDTO";
-import { AuthorsList } from "components/AuthorsList/AuthorsList";
+import { Authors } from "components/Authors/Authors";
 import "./Comments.css";
 
 export const Comments: React.FC = () => {
@@ -18,8 +18,16 @@ export const Comments: React.FC = () => {
   if (commentsList && commentsList.length > 0) {
     return (
       <div className='comments'>
+        <div className='comments__authors'>
+          <div className='comments__title'>Authors</div>
+          <Authors
+            response={commentsList}
+            activeAuthor={activeAuthor}
+            setActiveAuthor={setActiveAuthor}
+          />
+        </div>
         <div className='comments__list'>
-          <h1 className='comments__title'>Comments</h1>
+          <div className='comments__title'>Comments</div>
           {commentsList.map((comment: CommentDTO, index: number) => {
             const { author } = comment;
 
@@ -31,13 +39,6 @@ export const Comments: React.FC = () => {
               />
             );
           })}
-        </div>
-        <div className='comments__authors'>
-          <h1 className='comments__title'>Authors</h1>
-          <AuthorsList
-            response={commentsList}
-            setActiveAuthor={setActiveAuthor}
-          />
         </div>
       </div>
     );

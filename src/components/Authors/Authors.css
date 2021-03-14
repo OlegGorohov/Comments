@@ -1,0 +1,25 @@
+.authors {
+  display: flex;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+
+.authors__author {
+  margin-right: 20px;
+}
+
+.author {
+  color: #000;
+  padding: 5px 10px;
+  border: 2px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.author:hover,
+.author--active {
+  background: #1e90ff;
+  color: #fff;
+  border-color: #1e90ff;
+}

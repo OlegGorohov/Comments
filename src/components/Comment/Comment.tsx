@@ -20,7 +20,13 @@ export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
       >
         {author}
       </div>
-      <p>{message}</p>
+      <div
+        className={clsx("comment__text", {
+          "comment__text--active": author === activeAuthor,
+        })}
+      >
+        <p>{message}</p>
+      </div>
       {comments?.length > 0 &&
         comments.map((comment: CommentDTO, index: number) => (
           <Comment
