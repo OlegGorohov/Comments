@@ -7,6 +7,7 @@ import "./Comments.css";
 
 export const Comments: React.FC = () => {
   const [commentsList, setCommentsList] = useState<CommentDTO[] | null>(null);
+  const [activeAuthor, setActiveAuthor] = useState<string>("");
 
   useEffect(() => {
     commentsControl.getCommentsList().then((result) => {
@@ -20,12 +21,12 @@ export const Comments: React.FC = () => {
         <div className='comments__list'>
           <h1 className='comments__title'>Comments</h1>
           {commentsList.map((comment: CommentDTO, index: number) => {
-            const { author, message, comments } = comment;
+            const { author } = comment;
+
             return (
               <Comment
-                author={author}
-                message={message}
-                comments={comments}
+                response={comment}
+                activeAuthor={activeAuthor}
                 key={`${author}-${index}`}
               />
             );
@@ -33,7 +34,10 @@ export const Comments: React.FC = () => {
         </div>
         <div className='comments__authors'>
           <h1 className='comments__title'>Authors</h1>
-          <AuthorsList response={commentsList} />
+          <AuthorsList
+            response={commentsList}
+            setActiveAuthor={setActiveAuthor}
+          />
         </div>
       </div>
     );

@@ -1,19 +1,33 @@
 import React from "react";
+import clsx from "clsx";
 import { CommentDTO } from "dtos/CommentDTO";
 import "./Comment.css";
 
-export const Comment: React.FC<CommentDTO> = ({
-  author,
-  message,
-  comments,
-}) => {
+interface Props {
+  response: CommentDTO;
+  activeAuthor: string;
+}
+
+export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
+  const { author, message, comments } = response;
+
   return (
     <div className='comment'>
-      <div className='comment__author'>{author}</div>
+      <div
+        className={clsx("comment__author", {
+          "comment__author--active": author === activeAuthor,
+        })}
+      >
+        {author}
+      </div>
       <p>{message}</p>
       {comments?.length > 0 &&
         comments.map((comment: CommentDTO, index: number) => (
-          <Comment {...comment} key={`${author}-${index}`} />
+          <Comment
+            activeAuthor={activeAuthor}
+            response={comment}
+            key={`${author}-${index}`}
+          />
         ))}
     </div>
   );
