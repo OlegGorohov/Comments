@@ -1,4 +1,4 @@
-import { CommentDTO } from "dtos/CommentsDTO";
+import { CommentDTO } from "dtos/CommentDTO";
 
 export const testData: CommentDTO[] = [
   {

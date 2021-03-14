@@ -1,5 +1,5 @@
 import React from "react";
-import { CommentDTO } from "dtos/CommentsDTO";
+import { CommentDTO } from "dtos/CommentDTO";
 import "./Comment.css";
 
 export const Comment: React.FC<CommentDTO> = ({
