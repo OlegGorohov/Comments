@@ -1,5 +1,5 @@
 import React from "react";
-import { Comments } from "components/Comments/Comments";
+import { Comments } from "features/comments/Comments";
 
 function App() {
   return <Comments />;

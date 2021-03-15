@@ -27,6 +27,7 @@ export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
       >
         <p>{message}</p>
       </div>
+
       {comments?.length > 0 &&
         comments.map((comment: CommentDTO, index: number) => (
           <Comment

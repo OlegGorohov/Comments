@@ -13,5 +13,6 @@ export const getAuthorsFromResponse = (
       getAuthorsFromResponse(comment.comments, authors);
     }
   });
+
   return Array.from(authors);
 };

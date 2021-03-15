@@ -18,16 +18,16 @@ export const Comments: React.FC = () => {
   if (commentsList && commentsList.length > 0) {
     return (
       <div className='comments'>
+        <div className='comments__title'>Authors</div>
         <div className='comments__authors'>
-          <div className='comments__title'>Authors</div>
           <Authors
             response={commentsList}
             activeAuthor={activeAuthor}
             setActiveAuthor={setActiveAuthor}
           />
         </div>
+        <div className='comments__title'>Comments</div>
         <div className='comments__list'>
-          <div className='comments__title'>Comments</div>
           {commentsList.map((comment: CommentDTO, index: number) => {
             const { author } = comment;
 
