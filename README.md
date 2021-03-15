@@ -1,3 +1,15 @@
+# Тестовое задание "Список комментариев
+
+Реализовать отображение списка комментариев, ответов на них (по аналогии с habr.com), и всех уникальных авторов (отдельным от комментариев списком). При клике на автора подсвечивать все его комментарии в списке. Можно использовать CRA за основу. Дизайн произвольный.
+
+Требования:
+
+- TypeScript
+- React
+- Чистый CSS (css-modules опционально)
+
+Данные для отображения расположены в src/service/testData.ts
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
