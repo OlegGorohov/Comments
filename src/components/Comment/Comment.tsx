@@ -12,7 +12,7 @@ export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
   const { author, message, comments } = response;
 
   return (
-    <div className='comment'>
+    <article className='comment'>
       <div
         className={clsx("comment__author", {
           "comment__author--active": author === activeAuthor,
@@ -27,8 +27,7 @@ export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
       >
         <p>{message}</p>
       </div>
-
-      {comments?.length > 0 &&
+      {comments.length > 0 &&
         comments.map((comment: CommentDTO, index: number) => (
           <Comment
             activeAuthor={activeAuthor}
@@ -36,6 +35,6 @@ export const Comment: React.FC<Props> = ({ response, activeAuthor }) => {
             key={`${author}-${index}`}
           />
         ))}
-    </div>
+    </article>
   );
 };

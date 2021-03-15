@@ -18,28 +18,32 @@ export const Comments: React.FC = () => {
   if (commentsList && commentsList.length > 0) {
     return (
       <div className='comments'>
-        <div className='comments__title'>Authors</div>
-        <div className='comments__authors'>
-          <Authors
-            response={commentsList}
-            activeAuthor={activeAuthor}
-            setActiveAuthor={setActiveAuthor}
-          />
-        </div>
-        <div className='comments__title'>Comments</div>
-        <div className='comments__list'>
-          {commentsList.map((comment: CommentDTO, index: number) => {
-            const { author } = comment;
+        <section>
+          <h1 className='comments__title'>Authors</h1>
+          <div className='comments__authors'>
+            <Authors
+              response={commentsList}
+              activeAuthor={activeAuthor}
+              setActiveAuthor={setActiveAuthor}
+            />
+          </div>
+        </section>
+        <section>
+          <h1 className='comments__title'>Comments</h1>
+          <div className='comments__list'>
+            {commentsList.map((comment: CommentDTO, index: number) => {
+              const { author } = comment;
 
-            return (
-              <Comment
-                response={comment}
-                activeAuthor={activeAuthor}
-                key={`${author}-${index}`}
-              />
-            );
-          })}
-        </div>
+              return (
+                <Comment
+                  response={comment}
+                  activeAuthor={activeAuthor}
+                  key={`${author}-${index}`}
+                />
+              );
+            })}
+          </div>
+        </section>
       </div>
     );
   }

@@ -9,7 +9,7 @@ export const getAuthorsFromResponse = (
     if (comment.author) {
       authors.add(comment.author);
     }
-    if (comment?.comments.length > 0) {
+    if (comment.comments.length > 0) {
       getAuthorsFromResponse(comment.comments, authors);
     }
   });

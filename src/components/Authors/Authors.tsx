@@ -17,31 +17,27 @@ export const Authors: React.FC<Props> = ({
 }) => {
   const [authorsList, setAuthorsList] = useState<string[] | null>(null);
 
-  const handleClick = (author: string) => {
-    setActiveAuthor(author);
-  };
-
   useEffect(() => {
     setAuthorsList(getAuthorsFromResponse(response));
   }, [response]);
 
   return (
-    <div className='authors'>
+    <ul className='authors'>
       {authorsList &&
         authorsList.length > 0 &&
         authorsList?.map((author) => {
           return (
-            <div
+            <li
               className={clsx("author", "authors__author", {
                 "author--active": author === activeAuthor,
               })}
-              onClick={() => handleClick(author)}
+              onClick={() => setActiveAuthor(author)}
               key={author}
             >
               {author}
-            </div>
+            </li>
           );
         })}
-    </div>
+    </ul>
   );
 };
